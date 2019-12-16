@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+extern crate termion;
 
 fn main() {
     let mut program = read_file();
@@ -19,6 +20,8 @@ fn main() {
     let mut game_started = false;
     let mut current_paddle_x = -1;
     let mut current_ball_x  = -1;
+
+    println!("{}{}", termion::clear::All,termion::cursor::Hide );
 
     while !finished {
         let mut new_tile = [-1,-1,-1];
@@ -99,6 +102,9 @@ fn calculate_joystick_input( current_paddle_x:i64,current_ball_x:i64 ) -> i64{
 
 
 fn print_game_grid(game_grid: HashMap<(i64,i64),i64>,score: i64,max_x:i64,max_y:i64) {
+
+    print!("{}", termion::cursor::Goto(0, 2));
+
     for y in 0..max_y {
         for x in 0..max_x {
             let tile_id = game_grid.get(&(x,y));
