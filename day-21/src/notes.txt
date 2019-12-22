@@ -1,0 +1,191 @@
+
+ ABCD
+@    
+# ##########
+@    
+#  #########
+@    
+#   ########
+@   
+##########
+
+
+
+  @
+ @ @
+@J  @
+########
+ ***
+
+
+ ABCD
+@***@
+#####
+
+
+@
+# ###XXX
+#  ##XXX
+#   #XXX
+
+## ##XXX
+##  #XXX
+##   XXX
+
+### #XXX
+###  XXX
+###   XX
+
+# ## XXX
+# ##  XX
+# ##   X
+
+## # XXX
+## #  XX
+## #   X
+
+
+
+hole in front
+and area to land
+
+# XX#
+
+
+####  - Do nothing
+###*  - cant jump need before or after
+##*#  - can jump
+##**  - cant jump need before or after
+#*##  - can jump
+#*#*  - cant jump 
+#**#  - can jump
+#***  - cant jump need to walk 1 then jump
+*###  - can jump
+*##*  - cant jump need before
+*#*#  - can jump
+*#**  - cant jump need before
+**##  - can jump
+**#*  - cant jump need before
+***#  - can jump
+****  - impossible
+
+¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+
+###*  - cant jump need before or after
+##**  - cant jump need before or after
+#*#*  - cant jump need before or after
+
+#***  - cant jump need to walk 1 then jump
+
+*##  *  - cant jump need before
+*#*  *  - cant jump need before
+**#  *  - cant jump need before
+
+
+##* #  - can jump
+#*# #  - can jump
+#** #  - can jump
+*## #  - can jump
+*#* #  - can jump
+**# #  - can jump
+*** #  - can jump
+
+¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+
+#***  - cant jump need to walk 1 then jump
+#**
+
+
+
+¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+###*  - cant jump need before or after
+##**  - cant jump need before or after
+#*#*  - cant jump need before or after
+
+before
+
+ ### *  - cant jump need before or after
+
+
+##* *  - cant jump need before or after
+
+
+#*# *  - cant jump need before or after
+
+
+
+¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+
+*##*  - cant jump need before
+
+**## * -can jump replica
+#*## * -can jump replica
+
+
+*#* *  - cant jump need before
+
+**#* * - clone of below
+#*#* * - replica of before/after
+
+
+**# *  - cant jump need before
+
+***# * -can jump replica
+#**# * -can jump replica
+
+
+¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+EFGHI
+
+##### -> no jump required
+####* -> do nothing
+###*# -> do nothing
+###** -> do nothing
+##*## -> do nothing
+##*#* -> do not
+##**#
+##***
+#*###
+#*##*
+#*#*#
+#*#**
+#**##
+#**#*
+#***# 
+#**** -> impossible
+
+*#### -> fine
+*###* -> fine
+
+
+*#*## -> fine
+*#*#* -> fine
+
+
+**### -> fine
+**##* -> fine
+**#*# -> fine
+
+***## -> fine
+***#* -> can jump
+****# -> impossible
+***** -> impossible
+
+ABCDE
+*##*# -> needs fix jump one later
+*##** -> needs fix
+*#**# -> needs fix
+*#*** -> needs fix
+**#** -> needs fix jump two later
+SO DONT JUMP IF E IS FALSE AND H IS FALSE
+
+
+
+
+
+ABCD  EFGHI
+xxx#  *#*** -> 
+xxx#  **#** -> 
