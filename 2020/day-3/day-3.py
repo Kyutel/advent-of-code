@@ -55,6 +55,6 @@ def get_input():
 puzzle_input = get_input()
 
 # part1(test_data)
-# part1(puzzle_input)
-part2(test_data)
+part1(puzzle_input)
+# part2(test_data)
 part2(puzzle_input)
