@@ -1,4 +1,4 @@
-
+#!/usr/bin/python3
 
 def part1(puzzle_input):
     pass

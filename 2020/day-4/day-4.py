@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 import re
 
-
-
-
 def part1(passports):
     
     valid_passports = 0
