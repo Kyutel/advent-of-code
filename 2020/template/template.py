@@ -7,9 +7,8 @@ def part1(puzzle_input):
 def part2(puzzle_input):
     pass
 
-def get_input():
-    INPUT_FILE_NAME = "input.txt"
-    with open(INPUT_FILE_NAME, 'r') as file:
+def get_input(input_file_name = "input.txt"):
+    with open(input_file_name, 'r') as file:
         data = file.read().split('\n')
 
     return data
