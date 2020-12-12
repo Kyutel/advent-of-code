@@ -83,46 +83,52 @@ def update_adjacent_seat_count(adjacency_grid, location, seat_change, sight_map)
 def find_visible_seats(layout, location):
     visible_seats = []
     #search left
-    for x in range(location[1] -1, -1, -1):
+    decrement_x = range(location[1] -1, -1, -1)
+    increment_x = range(location[1] + 1, len(layout[0]))
+    decrement_y = range(location[0] - 1, -1, -1)
+    increment_y = range(location[0] + 1, len(layout))
+
+
+    for x in decrement_x:
         if layout[location[0]][x] != FLOOR:
             visible_seats.append((location[0],x)) 
             break
 
     #search right
-    for x in range(location[1] + 1, len(layout[0])):
+    for x in increment_x:
         if layout[location[0]][x] != FLOOR:
             visible_seats.append((location[0],x)) 
             break
 
     #search up
-    for y in range(location[0] - 1, -1, -1):
+    for y in decrement_y:
         if layout[y][location[1]] != FLOOR:
             visible_seats.append((y,location[1])) 
             break
 
     #search down
-    for y in range(location[0] + 1, len(layout)):
+    for y in increment_y:
         if layout[y][location[1]] != FLOOR:
             visible_seats.append((y,location[1])) 
             break
 
     #search upright
-    for y,x in zip(range(location[0] - 1, -1, -1), range(location[1] + 1, len(layout[0]))):
+    for y,x in zip(decrement_y, increment_x):
         if layout[y][x] != FLOOR:
             visible_seats.append((y,x)) 
             break
     #search upleft
-    for y,x in zip(range(location[0] - 1, -1, -1), range(location[1] -1, -1, -1), ):
+    for y,x in zip(decrement_y, decrement_x, ):
         if layout[y][x] != FLOOR:
             visible_seats.append((y,x)) 
             break
     #search downleft
-    for y,x in zip(range(location[0] + 1, len(layout)), range(location[1] -1, -1, -1)):
+    for y,x in zip(increment_y, decrement_x):
         if layout[y][x] != FLOOR:
             visible_seats.append((y,x)) 
             break
     #search downright
-    for y,x in zip(range(location[0] + 1, len(layout)), range(location[1] + 1, len(layout[0]))):
+    for y,x in zip(increment_y, increment_x):
         if layout[y][x] != FLOOR:
             visible_seats.append((y,x)) 
             break
@@ -168,13 +174,7 @@ def apply_rules(layout, adjacency_grid, tolerence, sight_map = None):
         adjacency_grid[index] = new_adjacency[index]
 
 def count_seats(layout):
-    count = 0
-    for column in layout:
-        for cell in column:
-            if cell == TAKEN_SEAT:
-                count += 1
-
-    return count
+    return sum( 1 for column in layout for seat in column if seat == TAKEN_SEAT)
 
 puzzle_input = get_input()
 test_input = get_input('test-input.txt')
