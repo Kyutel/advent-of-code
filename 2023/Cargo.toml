@@ -1,0 +1,27 @@
+[package]
+name = "aoc-2023"
+version = "0.1.0"
+edition = "2021"
+
+default-run = "day-10"
+
+[[bin]]
+name = "day-1"
+[[bin]]
+name = "day-2"
+[[bin]]
+name = "day-3"
+[[bin]]
+name = "day-4"
+[[bin]]
+name = "day-5"
+[[bin]]
+name = "day-6"
+[[bin]]
+name = "day-7"
+[[bin]]
+name = "day-8"
+[[bin]]
+name = "day-9"
+[[bin]]
+name = "day-10"
