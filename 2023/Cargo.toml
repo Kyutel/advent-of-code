@@ -29,3 +29,6 @@ name = "day-10"
 name = "day-11"
 [[bin]]
 name = "day-12"
+
+[dependencies]
+log = "0.4.28"

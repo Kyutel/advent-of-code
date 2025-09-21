@@ -1,5 +1,6 @@
-// static FILE_CONTENTS: &str = include_str!("test-input.txt");
-static FILE_CONTENTS: &str = include_str!("input.txt");
+// use log::{debug, trace};
+static FILE_CONTENTS: &str = include_str!("test-input.txt");
+// static FILE_CONTENTS: &str = include_str!("input.txt");
 
 #[derive(Debug, Clone)]
 struct SpringRow {
@@ -43,7 +44,6 @@ fn fill_gaps(remaining_springs: &Vec<char>, remaining_layout: &Vec<i32>)  -> i32
     }
 
     let mut gap = None;
-    // println!("0-{:?}", remaining_springs.len() - next_layout);
 
     for index in  0..(remaining_springs.len() - next_layout + 1) {
         let next_slice = &remaining_springs[index..index+next_layout];
@@ -64,7 +64,7 @@ fn fill_gaps(remaining_springs: &Vec<char>, remaining_layout: &Vec<i32>)  -> i32
     }
 
     if gap == None {
-        println!("No gaps remain to fit spring {:?}, {:?}", remaining_springs, remaining_layout);
+        // println!("No gaps remain to fit spring {:?}, {:?}", remaining_springs, remaining_layout);
         return 0;
     }
 
@@ -72,32 +72,39 @@ fn fill_gaps(remaining_springs: &Vec<char>, remaining_layout: &Vec<i32>)  -> i32
     let mut valid_routes = 0;
 
     if remaining_springs[gap] ==  '?' {
-        let next_springs = remaining_springs[gap+1..].iter().cloned().collect();
-        // println!("next_springs {:?}", next_springs);
-        // println!("entering with w/o filling {:?}, {:?}", next_springs, remaining_layout);
+        // let next_springs = remaining_springs[gap+1..].iter().cloned().collect();
+        let mut next_springs = remaining_springs.clone();
+        next_springs[gap] = '.';
+        println!("entering with w/o filling {:?}, {:?}", next_springs, remaining_layout);
         valid_routes += fill_gaps(&next_springs, &remaining_layout);
-        // println!("exit back into {:?}, {:?}", remaining_springs, remaining_layout);
+        println!("exit back into {:?}, {:?}", remaining_springs, remaining_layout);
 
     }
 
     // println!("gap {:?}", gap);
 
     let mut filled_gap = gap+next_layout;
-    if filled_gap + 1 < remaining_springs.len()  {
-        filled_gap += 1 ;
+    // if filled_gap > remaining_springs.len() && remaining_layout.len() > 1 {
+    //     return 0
+    // }
+        // println!("No gaps remain to fit spring v2 {:?}, {:?}", remaining_springs, remaining_layout);
+        // return 0
+    // }
+    let mut filled_gap_springs: Vec<char> = remaining_springs[filled_gap..].iter().cloned().collect();
+    if !filled_gap_springs.is_empty() && filled_gap_springs[0] == '?' {
+        filled_gap_springs[0] = '.'
     }
-    else if remaining_layout.len() > 1 {
-        println!("No gaps remain to fit spring v2 {:?}, {:?}", remaining_springs, remaining_layout);
-        return 0
-    }
-    let filled_gap_springs = remaining_springs[filled_gap..].iter().cloned().collect();
+
+
     let filled_gap_layout = remaining_layout[1..].iter().cloned().collect();
 
-    // println!("entering with {:?}, {:?}", filled_gap_springs, filled_gap_layout);
-    valid_routes += fill_gaps(&filled_gap_springs, &filled_gap_layout);
-    // println!("exit back into {:?}, {:?}", remaining_springs, remaining_layout);    
+    // filled_gap_springs[0] = '.';
 
-    // println!("{:?}", valid_routes);
+    println!("filled gap and entering with {:?}, {:?}", filled_gap_springs, filled_gap_layout);
+    valid_routes += fill_gaps(&filled_gap_springs, &filled_gap_layout);
+    println!("exit back into {:?}, {:?}", remaining_springs, remaining_layout);    
+
+    println!("Valid Routes: {:?}", valid_routes);
 
 
     return valid_routes
@@ -105,6 +112,7 @@ fn fill_gaps(remaining_springs: &Vec<char>, remaining_layout: &Vec<i32>)  -> i32
 }
 
 fn find_valid_arrangements(spring_row: &SpringRow) -> i32 {
+    // println!(" {:?}", spring_row);
     let valid_arrangements = fill_gaps(&spring_row.springs, &spring_row.layout);
     println!("final result: {:?}", valid_arrangements);
 
@@ -117,10 +125,10 @@ fn part1 () -> i32{
     // for spring_map in spring_conditions {
 
     // }
-    // return spring_conditions.iter().map(|spring_row: &SpringRow| find_valid_arrangements(&spring_row)).sum();
-    return find_valid_arrangements(&spring_conditions[997]);
+    // return spring_conditions.iter().map(|spring_row| {find_valid_arrangements(&spring_row)}).sum();
+    return find_valid_arrangements(&spring_conditions[5]);
     // find_valid_arrangements(&spring_conditions[1]);
-    // find_valid_arrangements(&spring_conditions[5]);
+    // return find_valid_arrangements(&spring_conditions[0]);
     // return 0
 }
 
