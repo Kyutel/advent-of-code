@@ -274,7 +274,7 @@ fn follow_pipes_2(pos: Position, map: &Map, start_direction: Direction) -> Vec<P
 fn part1 () -> i32 {
     let map = parse_map();
 
-    let (starting_location, starting_pipes) = find_starting_location_and_pipes(&map);
+    let (_starting_location, starting_pipes) = find_starting_location_and_pipes(&map);
 
     // println!("{:?}", find_starting_location_and_pipes(map));
 
@@ -290,7 +290,7 @@ fn part1 () -> i32 {
 
 
 
-fn print_map(map: &Map) {
+fn _print_map(map: &Map) {
     for line in map {
         for tile in line {
             print!("{}", tile)
@@ -299,7 +299,7 @@ fn print_map(map: &Map) {
     }
 }
 
-fn print_map2(map: &ValMap) {
+fn _print_map2(map: &ValMap) {
     for line in map {
         for tile in line {
             print!(" {:4} ", tile)
@@ -311,7 +311,6 @@ fn print_map2(map: &ValMap) {
 
 fn find_tiles_in_loop(map:Map, val_map:ValMap) -> i32 {
     // let mut inside = true;
-    let mut last_val = -1;
     let mut counter = 0;
 
 
