@@ -1,1 +1,14 @@
+8471 too high
+7862 too high
+
+7688 not right answer
+7673 not right answwer
+
+7229 not right answer
+
 ?????????.??????? 4,1,1,1,1
+
+
+
+
+[#.#..##] 2
