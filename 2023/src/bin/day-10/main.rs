@@ -1,4 +1,4 @@
-use std::{collections::HashSet, pin::Pin, vec};
+use std::{collections::HashSet, vec};
 
 // currently only works when map is a square
 

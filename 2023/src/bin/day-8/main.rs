@@ -90,7 +90,7 @@ fn part2 () -> i64 {
         finished = true;
         let next_d: char = directions[next_direction];
 
-        for (i, node_str) in travel_nodes.iter_mut().enumerate() {
+        for (_, node_str) in travel_nodes.iter_mut().enumerate() {
             let node = nodes.get(node_str).unwrap();
             if next_d == 'L' {
                 *node_str = node.left.clone();
