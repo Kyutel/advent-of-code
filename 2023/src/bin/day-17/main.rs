@@ -31,7 +31,7 @@ struct BlockTravel {
 }
 
 fn main() {
-    // println!("{:?}", part1());
+    println!("{:?}", part1());
     println!("{:?}", part2());
 }
 
