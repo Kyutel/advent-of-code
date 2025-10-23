@@ -3,7 +3,7 @@ name = "aoc-2023"
 version = "0.1.0"
 edition = "2021"
 
-default-run = "day-20"
+default-run = "day-21"
 
 [[bin]]
 name = "day-1"
@@ -45,6 +45,8 @@ name = "day-18"
 name = "day-19"
 [[bin]]
 name = "day-20"
+[[bin]]
+name = "day-21"
 
 [dependencies]
 log = "0.4.28"
