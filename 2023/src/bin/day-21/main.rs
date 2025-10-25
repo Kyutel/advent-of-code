@@ -212,13 +212,13 @@ fn get_position_by_direction_inf(pos: &Position, direction: Direction, map: &Gri
 fn get_reachable_plots_inf(grid: &Grid, steps_to_take: usize, starting_position: Position) -> usize {
 
     let mut reachable_plots = HashSet::new();
-    let mut map_pos  = MapPos { x: 0, y: 0};
+    let map_pos  = MapPos { x: 0, y: 0};
     reachable_plots.insert((starting_position, map_pos));
-    let mut walk_from =  HashSet::from_iter(vec![(starting_position, map_pos)]);
+    let walk_from =  HashSet::from_iter(vec![(starting_position, map_pos)]);
 
     let mut walked = vec![(walk_from.clone())];
 
-    for steps in 0..steps_to_take {
+    for _steps in 0..steps_to_take {
         let mut new_to_walk = HashSet::new();
         let walk_from= &walked[walked.len()-1];
         let next_positions = vec![
@@ -232,7 +232,6 @@ fn get_reachable_plots_inf(grid: &Grid, steps_to_take: usize, starting_position:
             for dir in next_positions.iter() {
                 if let (Some(new_pos), new_map_pos) = get_position_by_direction_inf(pos_to_walk_from, *dir, &grid, *map_pos_from) {
                     new_to_walk.insert((new_pos, new_map_pos));
-                    map_pos = new_map_pos;
                 }
             }
         }
